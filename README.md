@@ -22,8 +22,9 @@ Add the following buttons to display a list showing each ball number, its (x,y) 
 * CUE:   Display the same list, in ascending order of distance from the cue ball.
 
 
-       *(For your convenience, the specifications for project 3 are repeated below.)*
-       --------------------------------------------------------
+--------------------------------------------------------
+*(For your convenience, the specifications for project 3 are repeated below.)*
+--------------------------------------------------------
 
 
 project-3:
