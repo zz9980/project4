@@ -20,7 +20,7 @@ Add the following buttons (to do the following, when clicked):
 * CLOSEST:        Draw a white ring around the ball that is closest to the cue ball,
 and display the number of that ball in a message that is in the same color as that ball.
 
-* ALL:        Display a list showing each ball number, its (x,y) coordinates, and its distance from the cue ball.  
+* LIST:        Display a list showing each ball number, its (x,y) coordinates, and its distance from the cue ball.  
 This list should be in numberical order by ball number.
 
 * SORT:       Display the same list, but in ascending order of the y coordinate.
