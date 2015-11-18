@@ -5,9 +5,9 @@ Redo project 3 with sixteen (16) ball objects in an array and all button objects
 Both array names should be in lower case, using your own name as follows:
 -- Name the array of ball objects beginning with the first three letters of your last name.
 -- Name the array of button objects beginning with the first three letters of your first name.
-For example, if you name is Thomas Jefferson, then these would be acceptable declarations:  
+For example, if you name is Thomas Jefferson, then these would be acceptable declarations:  <code>
        `           Ball[] thom;      // Array of Ball objects. `  
-       `           Button[] jeff;    // Array of Button objects.`  
+       `           Button[] jeff;    // Array of Button objects.`  </code>
 
 BALLS:
 -----
