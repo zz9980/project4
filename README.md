@@ -12,7 +12,7 @@ For example, if you name is Thomas Jefferson, then these would be acceptable dec
 BALLS:
 -----
 Each ball collides elastically with every other ball.  
-*Use nested loops to handle all collisions between balls.*
+*Use nested loops to handle all collisions between balls.*  
 Also check to see if the "rat" has stopped a ball.
 
 BUTTONS:
