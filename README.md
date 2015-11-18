@@ -9,11 +9,13 @@ For example, if you name is Thomas Jefferson, then these would be acceptable dec
    `    Ball[] thom;`
    `    Button[] jeff;`
 
-
+BALLS:
+-----
 Each ball collides elastically with every other ball.  
-*Use nested loops to handle all collisions.*
+*Use nested loops to handle all collisions between balls.*
+Also check to see if the "rat" has stopped a ball.
 
-Buttons:
+BUTTONS:
 -------
 Add the following buttons to display a list showing each ball number, its (x,y) coordinates, and its distance from the cue ball.  
 -- LIST:  Display the list in numerical order (1 thru 15).
