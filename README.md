@@ -16,10 +16,15 @@ BALLS:
 
 BUTTONS:
 -------
-Add the following buttons to display a list showing each ball number, its (x,y) coordinates, and its distance from the cue ball.  
-* LIST:  Display the list in numerical order (1 thru 15).
-* SORT:  Displays the same list, but in ascending order of the y coordinate.
-* CUE:   Display the same list, in ascending order of distance from the cue ball.
+Add the following buttons:
+* CUE:        Add a button to display the number of the ball that is closest to the cue ball,
+and draw a white circle around that ball.
+*(The message should be in the same color as that ball)*
+
+* ALL:        Add a button to display a list showing each ball number, its (x,y) coordinates, and its distance from the cue ball.  
+This list should be in numberical order by ball number.
+
+* SORT:       Add another button to display the same list, but in ascending order of the y coordinate.
 
 
 
