@@ -1,11 +1,22 @@
 # project4
-Redo project 3 with fifteen (15) ball objects in an array;  
-*the array name should begin with the first three letters of your last name (using lower case).*
+Redo project 3 with fifteen (15) ball objects in an array and six (6) button objects in an array:
+
+Both array names should be in lower case, using your own name as follows:
+-- Name the array of ball objects beginning with the first three letters of your last name.
+-- Name the array of button objects beginning with the first three letters of your first name.
+For example, if you name is Thomas Jefferson, then these would be acceptable declarations:  
+`    Ball[] thom;`
+`    Button[] jeff;`
+
+
+Each ball collides elastically with every other ball.  
+*Use nested loops to handle all collisions.*
+
 
 
 
 ====
-**    (For your convenience, the specifications for project 3 are repeated below) **
+    *(For your convenience, the specifications for project 3 are repeated below.)*
 ====
 
 
