@@ -6,8 +6,8 @@ Both array names should be in lower case, using your own name as follows:
 -- Name the array of ball objects beginning with the first three letters of your last name.
 -- Name the array of button objects beginning with the first three letters of your first name.
 For example, if you name is Thomas Jefferson, then these would be acceptable declarations:  
-   `    Ball[] thom;`
-   `    Button[] jeff;`
+   `    Ball[] thom;`      // Array of Ball objects.  
+   `    Button[] jeff;`    // Array of Button objects.  
 
 BALLS:
 -----
@@ -20,7 +20,6 @@ Add the following buttons to display a list showing each ball number, its (x,y) 
 * LIST:  Display the list in numerical order (1 thru 15).
 * SORT:  Displays the same list, but in ascending order of the y coordinate.
 * CUE:   Display the same list, in ascending order of distance from the cue ball.
-
 
 
 ====
