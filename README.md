@@ -25,6 +25,9 @@ This list should be in numberical order by ball number.
 
 * __SORT__:       Display the same list, but in ascending order of the y coordinate.
 
+MOUSEOVER:
+---------
+Each button should change color when the mouse is hovering over it.
 
 
 ---------
@@ -54,9 +57,9 @@ BIRD: An animated bird flies across the table from right to left.
 If this button is clicked AGAIN while bird is still visible on the screen,
 the bird drops a "bomb" which falls downward with increasing Y and DY (but the same DX as the bird).
 
-RAT: An animated "rat" appears on the left side of the table at random Y, and runs across the table from left to right (with random random DY and random but positive DX, each frame).
+RAT: An animated "rat" appears on the left side of the table at random Y, and runs across the table from left to right (with random DY and random but positive DX, each frame).
 
-When the "rat" collides with a ball, the ball stop moving (DX=0, DY=0), but the rat continues to get random DX and DY each frame.
+When the "rat" collides with a ball, the ball stops moving (DX=0, DY=0), but the rat continues to get random DX and DY each frame.
 
 The score is increased by ONE for each ball-to-ball collision,
 but the score is reduced by TEN when the rat hits a ball.
