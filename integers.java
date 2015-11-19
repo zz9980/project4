@@ -106,7 +106,15 @@ void show(int a[], int m ) {
 
 void keyPressed() {
  if (key == 's') srt( a, many );
+ if (key == 'r') ran( a, many );
 } 
+
+// Fill array with random #s.
+void ran( int[] a, int m ) {
+  for (int i=0; i<m; i++) {
+    a[i]=  int(  random( -500, 4999 ) );
+  }
+}  
 
 void srt( int a[], int many ) {
  
