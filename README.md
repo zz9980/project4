@@ -16,8 +16,8 @@ BALLS:
 * Each ball collides elastically with every other ball.  *(Use nested loops.)*   
 * Also check to see if the "rat" has stopped a ball.
 
-BUTTONS:
--------
+BUTTONS & MOUSEOVER:
+-------------------
 Add the following buttons (to do the following, when clicked):
 * __CLOSEST__:  Draw a white ring around the ball that is closest to the cue ball,
 and display the number of that ball in a message that is in the same color as that ball.
@@ -25,10 +25,8 @@ and display the number of that ball in a message that is in the same color as th
 * __LIST__:     Display a list showing each ball number, its (x,y) coordinates, and distance from cue ball.  
 This list should be in numberical order by ball number.
 
-* __SORT__:     Display the same list, but in ascending order of the y coordinate.
+* __SORT__:     Display the same list, but in ascending order of the y coordinate.  
 
-MOUSEOVER:
----------
 Each button should change color when the mouse is hovering over it.
 
 
