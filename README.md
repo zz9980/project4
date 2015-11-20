@@ -14,9 +14,8 @@ For example, if your name is Thomas Jefferson, then these would be acceptable de
 BALLS:
 -----
 * Each ball collides elastically with every other ball.  *(Use nested loops.)*  
-  _(When balls collide elastically, they swap velocities DX and DY._ 
-* Also check to see if the "rat" has stopped a ball.
-  _(DX and DY are set to zero.)_
+      When balls collide elastically, they swap velocities DX and DY._ 
+* Also check to see if the "rat" has stopped a ball. _(DX and DY are set to zero.)_
 
 BUTTONS & MOUSEOVER:
 -------------------
