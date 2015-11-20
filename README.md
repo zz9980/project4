@@ -58,9 +58,8 @@ the bird drops a "bomb" which falls downward with increasing Y and DY (but the s
 
 RAT: An animated "rat" appears on the left side of the table at random Y, and runs across the table from left to right (with random random DY and random but positive DX, each frame).
 
-When the "rat" collides with a ball, the ball stop moving (DX=0, DY=0), but the rat continues to get random DX and DY each frame.
+When the "rat" collides with a ball, the ball stops moving (DX=0, DY=0), but the rat continues to use random DX and DY for each frame.
 
-The score is increased by ONE for each ball-to-ball collision,
-but the score is reduced by TEN when the rat hits a ball.
+Score is increased by ONE for each ball-to-ball collision, but reduced by TEN when the rat hits a ball.
 
 Clicking on any ball should reset ONLY that ball, and deducts FIVE points from the score. Clicking on the "rat" makes it disappear, and adds FIFTY points to the score.
