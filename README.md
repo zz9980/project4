@@ -10,7 +10,6 @@ For example, if your name is Thomas Jefferson, then these would be acceptable de
         Ball[] thom;      // Array of Ball objects.  
         Button[] jeff;    // Array of Button objects.
 ```
-
 BALLS:
 -----
 * Each ball collides elastically with every other ball.  *(Use nested loops.)*   
