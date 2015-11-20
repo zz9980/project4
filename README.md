@@ -1,4 +1,4 @@
-# project4
+# project4.
 Redo project 3 with sixteen (16) ball objects in an array and all button objects in an array.  
 *(Balls should each be a differrent color, and numbered from 1 to 15, plus one white "cue" ball.)*
 
