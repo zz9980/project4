@@ -1,5 +1,5 @@
 # project4
-Redo project 3 with sixteen (16) ball objects in an array and all button objects in an array:
+Redo project 3 with sixteen (16) ball objects in an array and all button objects in an array.  
 *(Balls should each be a differrent color, and numbered from 1 to 15, plus one white "cue" ball.)*
 
 Both array names should be in lower case, using your own name as follows:  
