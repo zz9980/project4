@@ -11,19 +11,19 @@ For example, if your name is Thomas Jefferson, then these would be acceptable de
 
 BALLS:
 -----
-* Each ball collides elastically with every other ball.  *(Use nested loops to handle all collisions between balls.*   
+* Each ball collides elastically with every other ball.  *(Use nested loops.)*   
 * Also check to see if the "rat" has stopped a ball.
 
 BUTTONS:
 -------
 Add the following buttons (to do the following, when clicked):
-* __CLOSEST__:        Draw a white ring around the ball that is closest to the cue ball,
+* __CLOSEST__:  Draw a white ring around the ball that is closest to the cue ball,
 and display the number of that ball in a message that is in the same color as that ball.
 
-* __LIST__:        Display a list showing each ball number, its (x,y) coordinates, and its distance from the cue ball.  
+* __LIST__:     Display a list showing each ball number, its (x,y) coordinates, and distance from the cue ball.  
 This list should be in numberical order by ball number.
 
-* __SORT__:       Display the same list, but in ascending order of the y coordinate.
+* __SORT__:     Display the same list, but in ascending order of the y coordinate.
 
 MOUSEOVER:
 ---------
@@ -34,7 +34,6 @@ Each button should change color when the mouse is hovering over it.
 Project 3
 ---------
 *(For your convenience, specifications for project 3 are repeated below.)*
-
 
 project-3:
 Redo project 2, using Objects (classes for Ball, Button, etc.)
@@ -57,9 +56,9 @@ BIRD: An animated bird flies across the table from right to left.
 If this button is clicked AGAIN while bird is still visible on the screen,
 the bird drops a "bomb" which falls downward with increasing Y and DY (but the same DX as the bird).
 
-RAT: An animated "rat" appears on the left side of the table at random Y, and runs across the table from left to right (with random DY and random but positive DX, each frame).
+RAT: An animated "rat" appears on the left side of the table at random Y, and runs across the table from left to right (with random random DY and random but positive DX, each frame).
 
-When the "rat" collides with a ball, the ball stops moving (DX=0, DY=0), but the rat continues to get random DX and DY each frame.
+When the "rat" collides with a ball, the ball stop moving (DX=0, DY=0), but the rat continues to get random DX and DY each frame.
 
 The score is increased by ONE for each ball-to-ball collision,
 but the score is reduced by TEN when the rat hits a ball.
