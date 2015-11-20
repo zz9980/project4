@@ -8,7 +8,7 @@ Both array names should be in lower case, using your own name as follows:
 
 For example, if your name is Thomas Jefferson, then these would be acceptable declarations:
 ```
-                Ball[] thom;      // Array of Ball objects.  
+                Ball[] *thom*;      // Array of Ball objects.  
                 Button[] jeff;    // Array of Button objects.
 ```
 BALLS:
