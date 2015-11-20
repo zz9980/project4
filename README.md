@@ -13,9 +13,9 @@ For example, if your name is Thomas Jefferson, then these would be acceptable de
 ```
 BALLS:
 -----
-* Each ball collides with every other ball.  *(Use nested loops.)*  
-* Balls collide elastically:  swap velocities DX and DY. 
-* Also check to see if the "rat" has stopped a ball:  set DX and DY to zero.
+* Each ball collides with every other ball: ... *Use nested loops.*  
+* Balls collide elastically:  ... *Swap velocities DX and DY.*
+* Also check to see if the "rat" has stopped a ball:  ... *set DX and DY to zero.*
 
 BUTTONS & MOUSEOVER:
 -------------------
