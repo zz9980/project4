@@ -1,8 +1,12 @@
+// BAM:
+int many=5;
+
+
 ////Nick Ferro
 //// Project 4   11-19-15    
 //// Pool table elastic collisions
 //// array list prototyping
-ArrayList balls;
+Ball[] balls;
 PTable t;
 Button one, two, three, four;
 Bird brd;
@@ -23,9 +27,9 @@ void setup() {
   t.horizon= (height/4)-20;
   t.wall=true;
   //
-  balls= new ArrayList();
-  for (int i = 0; i < 5; i++) {
-    balls.add(new Ball(random(t.middle+15,t.right-15), random(t.top+15,t.bottom+15), 30, i, balls));
+  balls= new Ball[many];
+  for (int j = 0; j < 5; j++) {
+    balls[j]=  new Ball(random(t.middle+15,t.right-15), random(t.top+15,t.bottom+15), 30, j);
   }
   //
   one= new Button(50,5);
@@ -70,10 +74,12 @@ void draw() {
   t.tableDisplay();
   drawGrass();
   drawClouds();
-  for (Ball ball : balls) {
-    ball.collide();
-    ball.move();
-    ball.show();  
+  for ( int j=0; j<many; j++) {
+    for( int k=j+1; k<many; k++) {
+      balls[j].collide( balls[k] );
+    }
+    balls[j].move();
+    balls[j].show();  
   }
   buttons();
   birds();
@@ -152,25 +158,25 @@ class Ball {
   float dx;
   float dy;
   int id;
-  ArrayList others;
+//--  ArrayList others;
 
-  Ball(float xin, float yin, float din, int idin, ArrayList oin) {
+  Ball(float xin, float yin, float din, int idin ) {
     x = xin;
     y = yin;
     diameter = din;
     id = idin;
-    others = oin;
+//--    others = oin;
     dx=random(-2,2);
     dy=random(-2,2);
   }
   // METHODS
-  void collide(){
-    for (int i = id+1; i < balls.size(); i++) {
-      float distance = dist(x,y,others[i].x,others[i].y);
+  void collide( Ball other){
+    for (int i = id+1; i < many; i++) {
+      float distance = dist(x,y, other.x,other.y);
       if (distance < diameter) {
         float tmp;
-        tmp = dx; dx = others[i].dx; others[i].dx = tmp;
-        tmp = dy; dy = others[i].dy; others[i].dy = tmp;
+        tmp = dx; dx = other.dx; other.dx = tmp;
+        tmp = dy; dy = other.dy; other.dy = tmp;
       }
     }
   }
