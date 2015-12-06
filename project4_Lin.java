@@ -1,17 +1,13 @@
-//// Project 3, Teng Lin 2015/11/4.
+//// Project 4, Teng Lin 2015/12/06.
 
 
+int lin=15;
+Ball[] b= new Ball[lin];         //array of ball object 
+Ball cue;
 
-int lin=16;
-Ball[] b= new Ball[lin];    //array of ball object 
+int ten=7;
+Button [] bt= new Button[ten];   //array of button object 
 
-
-
-
-
-
-//Ball c, r, g, b, y;
-Buttons reset, rwall, bird, rat;
 Bird o, p, q;
 ////global
 float ratx= 40, raty=random(250,350), ratdx=random(2,6);
@@ -32,57 +28,43 @@ void setup() {
   bottom= height-80;
   middle= left + (right-left) / 2;
   
- //creating 16 balls 
- b[0]= new Ball( color (int(random(0,255)),int(random(0,255)),int(random(0,255))), random( middle+25, right), random (top, bottom) );
+ //creating 15 balls by array + cue ball
+ cue = new Ball();
+ b[0]= new Ball( color (int(random(0,255)),int(random(0,255)),int(random(0,255))), random( middle+25, right), random (top, bottom), 0 );
  
  for (int i=1; i<lin; i++) {
-   b[i]= new Ball(color (int(random(0,255)),int(random(0,255)),int(random(0,255))), random( middle+25, right), random (top, bottom) );
+ b[i]= new Ball(color (int(random(0,255)),int(random(0,255)),int(random(0,255))), random( middle+25, right), random (top, bottom), i );
  }
-  
- 
-  
-  
-  
-  
-  
-  
-  
-  
-  //creating birds
+ //creating birds
   o = new Bird( 255,0,0, random(50,100), random(20,30),random(1,3));
   p = new Bird( 0,255,0, random(50,100), random(35,50),random(1,3));
   q = new Bird( 0,0,255, random(50,100), random(40,65),random(1,3));
+   
+  //creating buttons using array
+  int mx=70, my=105, l=60, w=30; 
+  bt[0]= new Button( mx, my, l, w );
   
-  //creating buttons, and name.
-  reset = new Buttons( 70,105,60,30);
-  reset.name= "RESET";
-  rwall = new Buttons( 140,105,60,30);
-  rwall.name= "WALL";
-  bird  = new Buttons( 70,145,60,30);
-  bird.name= "BIRDS";
-  rat   = new Buttons( 140,145,60,30);
-  rat.name= "RAT";
+  for ( int i=0; i<ten; i++){
+  bt[i] = new Button(mx, my, l, w );
+  mx+=70;
+  }
   
+  bt[0].name= "Reset" ;
+  bt[1].name= "Wall" ;
+  bt[2].name= "Bird" ;
+  bt[3].name= "Rat" ;
+  bt[4].name= "Closest" ;
+  bt[5].name= "List" ;
+  bt[6].name= "Sort" ;
   reset();
 
 }
 
 
 void reset() {
- /*
-  r.reset();
-  g.reset();
-  b.reset();
-  y.reset();
-  c.bx=width/8;
-  c.by=height/2;
-  c.bdx=0;
-  c.bdy=0;
-  r.bx=middle+30;
-  r.by=height/3;
-  g.bx=middle+random(60,65);
-  g.by=height/3.2;
- */
+  for (int i=0; i<lin; i++) {
+    b[i].reset(); 
+  }
   //rat reset.
   rat2=false;
   ratx= 40; 
@@ -163,31 +145,27 @@ void cloud() {
 
 
 void ball() { 
-  
+  // cue ball
+  cue.bx = width/5;
+  cue.by = height/2;
+  fill(255);
+  ellipse( cue.bx, cue.by, 30,30);
+  textSize(10);
+  fill(0);
+  text( "Cue", cue.bx-6, cue.by);
+  // rest of the balls
   for (int i=0; i<lin; i++) {
     b[i].show();
     b[i].move();
-    //collision( b[0],b[i]);
   }
- 
+  //// Elastic collisions.
   for(int i=0; i<lin; i++) {
-     collision( b[0],b[i]);
-    
-    for (int n=0; n<lin; n++) {
-      collision( b[i],b[n]);
-
+    for( int h=i+1; h<lin; h++) {
+     collision( b[i],b[h]);
+    }
   }
-  }
+} 
  
- }
- 
- 
- 
- 
- 
- 
-  
-
 
 void collision( Ball p, Ball q ) {
    if ( p.hit( q.bx,q.by ) ) {
@@ -196,31 +174,10 @@ void collision( Ball p, Ball q ) {
       tmp=p.bdy;  p.bdy=q.bdy;  q.bdy=tmp;
       //p.move();  p.move();   p.move();
       //q.move();  q.move();   q.move();
-      //score = score+1;
+      score = score+1;
     }
 }
   
-
-  
-  //// Elastic collisions.
-/*
-  collision( c,r);
-  collision( c,g);
-  collision( c,b);
-  collision( c,y);
-  
-  collision( r,g);
-  collision( r,b);
-  collision( r,y);
-  
-  collision( g,b);
-  collision( g,y);
- 
-  collision( b,y);
-  */
- 
-
-
 
 void bird() { 
   if (birds) {
@@ -232,13 +189,10 @@ void bird() {
   p.move();
   q.move();
   }
-o.mousePressed();
+  o.mousePressed();
   p.mousePressed();
   q.mousePressed();
-
-
 }
-
 
 //rat
 void rat2() { 
@@ -283,32 +237,15 @@ void rat2() {
  }
   
   
-  /*
+  
   //if rat collide with ball, ball will stop.
-  if (  dist( ratx,raty, r.bx,r.by ) < 30 ){
-    r.bdx=0;
-    r.bdy=0;
+  for(int i=0; i<lin; i++){
+  if (  dist( ratx,raty, b[i].bx,b[i].by ) < 30 ){
+    b[i].bdx=0;
+    b[i].bdy=0;
     score = score-10;
+   }
   }
-  
-  if (  dist( ratx,raty, g.bx,g.by ) < 30 ){
-    g.bdx=0;
-    g.bdy=0;
-    score = score-10;
-  }
-  
-  if (  dist( ratx,raty, b.bx,b.by ) < 30 ){
-    b.bdx=0;
-    b.bdy=0;  
-    score = score-10;
-  }
-  
-  if (  dist( ratx,raty, y.bx,y.by ) < 30 ){
-    y.bdx=0;
-    y.bdy=0;  
-    score = score-10;
-  }
-  */
 }
 //// HANDLERS:  keys, click
 void keyPressed() {
@@ -319,30 +256,26 @@ void keyPressed() {
 
 }
 
-//click on ball to reset the ball.
-void mousePressed() {
 
- // r.mousePressed();
- // g.mousePressed();
- // b.mousePressed();
-  //y.mousePressed();
-  
-  
+void mousePressed() {
+  //click on ball to reset the ball.
+  for(int i=0; i<lin; i++) {
+   b[i].mousePressed();
+  }
+  /*
   //reset button
-  if ( mouseX<100 && mouseX>40 && mouseY<120 && mouseY>90) {
+  if ( mouseX<b[0].mx && mouseX>b[0].mx-30 && mouseY<b[0].my+15 && mouseY>b[0].my-15) {
    reset();
   }
   //wall button
   if ( mouseX<170 && mouseX>110 && mouseY<120 && mouseY>90) {
-   wall=false;
-  /*
-   r.move2();
-   g.move2();
-   b.move2();
-   y.move2();
-   */
-   
+    
+  for(int i=0; i<lin; i++) {
+   b[i].move2();
   }
+  wall=false;
+  }
+  
   //bird button
   if ( mouseX<100 && mouseX>40 && mouseY<160 && mouseY>130) {
    birds=true;
@@ -361,91 +294,81 @@ void mousePressed() {
      ratx=40;
      score = score+50;
    }
-   
+*/
+}
+
+
+void score() {
+  fill(0);
+  textSize(10);
+  text("SCORE", 600, 80);
+  text(score, 600, 90);
+  text("Teng Lin", 330, 80);
+  text("Project 4", 330, 90);
 }
 
 void buttons() {
-  reset.show();
-  rwall.show();
-  bird.show();
-  rat.show();
+  
+  for (int i=0; i<ten; i++) {
+    bt[i].show(); 
+  }
+
+ 
 }
 
 
 
-class Buttons {
+class Button {
   int mx, my, l, w;              //buttons centerx , centery , length , width.
   String name="";
   
- Buttons( int templ, int tempr, int tempt, int tempb) {
+ Button( int templ, int tempr, int tempt, int tempb) {
   mx=templ;
   my=tempr;
   l=tempt;
   w=tempb;
  }
 
-void show() {
+ void show() {
   fill(0,0,0,30);
   rectMode(CENTER);
   rect( mx, my, l, w);
+  fill(0);
   textSize(14);
   text( name, mx-20, my+5);
+  }
+  
+  /*
+ void mousePressed() { 
+   if ( mouseX<mx+30 && mouseX>mx-30 && mouseY>my && mouseY< my+15 && mouseY > my-15) {
+   }
  }
-
+ */
 }
-
-
-void score() {
-   
-  fill(0);
-  textSize(10);
-  text("SCORE", 600, 80);
-  text(score, 600, 90);
-  text("Teng Lin", 330, 80);
-  text("Project 3", 330, 90);
-}
-
-
-
-
-
 
 class Ball {
   int c;
   float bx, by;
   float bdx=random(1,1.5), bdy=random(1,1.5);
-  String n="";
-    
-    
-    
-   
- Ball( float tempx, float tempy, color tempc, float tempdx, float tempdy) {
+  int n;
+ Ball() {
+ }
+ Ball(color tempc, float tempx, float tempy, int tempn) {
   c=tempc;
   bx=tempx;
   by=tempy;
-  bdy=tempdy;
-  bdx=tempdx;
+  n=tempn;
   
  } 
- Ball(color tempc, float tempx, float tempy) {
-  c=tempc;
-  bx=tempx;
-  by=tempy;
 
-  
- }
-  
  void show() {
    fill(c);
    ellipse( bx, by, 30,30);
    fill(0);
    textSize(15);
-   text( "1", bx-5, by+5);
-   
+   text( n, bx-5, by+5); 
  }
- 
 
- 
  void move() {
   bx = bx + bdx;
   by = by + bdy;
@@ -460,30 +383,21 @@ class Ball {
 
  }
 
-
-
-
-
-
  void reset() {
     bx=  random(middle+25, right );
     by=  random( top, bottom );
     bdx=  random( 1,2 );
     bdy=  random( 1,2 );
     wall= true;
-    middle= (width/2)+30;
-   
-  
-
-
+    middle= (width/2);
   }
   boolean hit( float x, float y ) {
-    if (  dist( x,y, this.bx,this.by ) < 30 ) return true;
+    if (  dist( x,y, this.bx,this.by ) < 30.5 ) return true;
     else return false;
   }
  
  void mousePressed() {
-   if (dist ( bx, by, mouseX, mouseY) <30) {
+   if (dist ( bx, by, mouseX, mouseY) <30.5) {
      bx=  random( 390,right );     
      by=  random( top, bottom );
      bdx=  random( 1,2 );    
