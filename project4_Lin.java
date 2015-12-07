@@ -46,7 +46,7 @@ void setup() {
   
   for ( int i=0; i<ten; i++){
   bt[i] = new Button(mx, my, l, w );
-  mx+=70;
+  my+=50;
   }
   
   bt[0].name= "Reset" ;
@@ -148,11 +148,16 @@ void ball() {
   // cue ball
   cue.bx = width/5;
   cue.by = height/2;
-  fill(255);
-  ellipse( cue.bx, cue.by, 30,30);
-  textSize(10);
+  ellipse( cue.bx,cue.by,30,30);
   fill(0);
+  textSize(10);
   text( "Cue", cue.bx-6, cue.by);
+  cue.bdx=1;
+  cue.bdy=1;
+  cue.move();
+ 
+  cue.c = (255);
+  
   // rest of the balls
   for (int i=0; i<lin; i++) {
     b[i].show();
@@ -164,6 +169,9 @@ void ball() {
      collision( b[i],b[h]);
     }
   }
+  for(int i=0; i<lin; i++) {
+     collision( cue,b[i]);
+    }
 } 
  
 
@@ -256,19 +264,19 @@ void keyPressed() {
 
 }
 
-
 void mousePressed() {
   //click on ball to reset the ball.
   for(int i=0; i<lin; i++) {
    b[i].mousePressed();
   }
-  /*
+
   //reset button
-  if ( mouseX<b[0].mx && mouseX>b[0].mx-30 && mouseY<b[0].my+15 && mouseY>b[0].my-15) {
+  if ( mouseX<bt[0].mx+30 && mouseX>bt[0].mx-30 && mouseY<bt[0].my+15 && mouseY>bt[0].my-15) {
    reset();
   }
+  
   //wall button
-  if ( mouseX<170 && mouseX>110 && mouseY<120 && mouseY>90) {
+  if ( mouseX<bt[1].mx+30 && mouseX>bt[1].mx-30 && mouseY<bt[1].my+15 && mouseY>bt[1].my-15) {
     
   for(int i=0; i<lin; i++) {
    b[i].move2();
@@ -277,27 +285,24 @@ void mousePressed() {
   }
   
   //bird button
-  if ( mouseX<100 && mouseX>40 && mouseY<160 && mouseY>130) {
+  if ( mouseX<bt[2].mx+30 && mouseX>bt[2].mx-30 && mouseY<bt[2].my+15 && mouseY>bt[2].my-15) {
    birds=true;
 
   }
   
   //rat button
-  if ( mouseX<170 && mouseX>110 && mouseY<160 && mouseY>130) {
+  if ( mouseX<bt[3].mx+30 && mouseX>bt[3].mx-30 && mouseY<bt[3].my+15 && mouseY>bt[3].my-15) {
    rat2=true;
-   
- 
-   }
-   //catch the rat.
+  }
+  //catch the rat.
    if ( dist( ratx,raty, mouseX,mouseY ) < 30 ) {
      rat2= false; 
      ratx=40;
      score = score+50;
    }
-*/
 }
 
-
+// score and texts
 void score() {
   fill(0);
   textSize(10);
@@ -305,6 +310,17 @@ void score() {
   text(score, 600, 90);
   text("Teng Lin", 330, 80);
   text("Project 4", 330, 90);
+  text("Pressed r key to reset", 50, 440);
+  text("Click each ball to reset the ball", 50, 450);
+  
+  
+  
+  
+  
+  
+  
+  
+  
 }
 
 void buttons() {
@@ -373,7 +389,7 @@ class Ball {
   bx = bx + bdx;
   by = by + bdy;
   // bounce off wall
-  if ( bx < middle || bx > right )   bdx *= -1;
+  if ( bx < middle|| bx > right )   bdx *= -1;
   if ( by < top || by > bottom )     bdy *= -1;
  }
  void move2() { 
@@ -384,10 +400,10 @@ class Ball {
  }
 
  void reset() {
-    bx=  random(middle+25, right );
+    bx=  random(middle+30, right );
     by=  random( top, bottom );
-    bdx=  random( 1,2 );
-    bdy=  random( 1,2 );
+    bdx=  random( 1,1.5 );
+    bdy=  random( 1,1.5 );
     wall= true;
     middle= (width/2);
   }
